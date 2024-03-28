@@ -10,18 +10,25 @@
             </div>
         </div>
     </div>
+    <!-- Elemento de notificação -->
+    <NotificacaoDefault ref="notificationRef" />
 </template>
 
 <script>
 import TabelaDefault from '@/components/TabelaDefault.vue';
+import { useNotificationsStore } from '@/stores/notifications';
+import NotificacaoDefault from '@/components/NotificacaoDefault.vue';
 
 export default {
     name: 'ListagemProduto',
     components: {
-        TabelaDefault
+        TabelaDefault,
+        NotificacaoDefault
     },
     data() {
         return {
+            title: 'Produto',
+            mensagem: '',
             header: ['ID', 'Produto', 'Status', 'Editar', 'Ativar/Inativar'],
             items: [
                 { id: 1, produto: 'Produto 01', status: true, editar: true, ativar: false },
@@ -39,8 +46,21 @@ export default {
     },
     methods: {
         ativarInativar(item) {
-            // Lógica para ativar/inativar o item
-            console.log('Ativar/Inativar item:', item);
+            item.status = !item.status;
+            
+            if (item.status) this.mensagem = 'O produto "' + item.produto + '" foi ativado com sucesso!';
+            else this.mensagem = 'O produto "' + item.produto + '" foi desativado com sucesso!';
+
+            const notification = {
+                type: 'success',
+                title: this.title,
+                message: this.mensagem
+            };
+
+            // Gravando globalmente a notificação e exibindo no componente de notificação
+            useNotificationsStore().showNotification(notification);
+            this.$refs.notificationRef.addNotification(useNotificationsStore().notification);
+            useNotificationsStore().clearNotification();
         }
     },
 };

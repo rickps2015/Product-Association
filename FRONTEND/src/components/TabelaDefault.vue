@@ -28,7 +28,7 @@
                                 <font-awesome-icon 
                                     :icon="'fa-solid fa-lightbulb'"
                                     class="clickable"
-                                    :class="value ? 'text-warning' : ''"
+                                    :class="item.status == true ? 'text-warning' : ''"
                                     @click.prevent="emitAtivarInativar(item)" />
                             </span>
                         </template>
