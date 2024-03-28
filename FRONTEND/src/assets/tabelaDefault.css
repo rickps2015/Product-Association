@@ -11,3 +11,7 @@
   z-index: 9;
   background-color: rgb(248, 245, 245);
 }
+
+.router-link-hover:hover {
+  background-color: transparent;
+}

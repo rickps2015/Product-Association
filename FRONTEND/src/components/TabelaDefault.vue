@@ -9,30 +9,22 @@
             <tbody>
                 <tr v-for="(item, index) in items" :key="index">
                     <td v-for="(value, key) in item" :key="key" class="text-center">
-                        <!-- Verifica se a chave é editar ou ativar -->
+                        <!-- Verifica se a chave é editar, ativar ou editar -->
                         <template v-if="['editar', 'ativar', 'status'].includes(key)">
-                            <span v-if="key === 'status'" class="badge" :class="value == true ? 'text-bg-success' : 'text-bg-danger'">
+                            <span v-if="key === 'status'" class="badge"
+                                :class="value == true ? 'text-bg-success' : 'text-bg-danger'">
                                 {{ value ? 'Ativo' : 'Inativo' }}
                             </span>
-                            <!-- Se a chave for editar, envolve o ícone com router-link -->
                             <span v-else-if="key === 'editar'">
-                                <router-link :to="{ name: 'home' }">
-                                    <font-awesome-icon 
-                                        :icon="'fa-solid fa-pen-to-square'"
-                                        class="clickable"
-                                        @click.prevent="emitEditar(item)" />
-                                </router-link>
+                                <font-awesome-icon :icon="'fa-solid fa-pen-to-square'" class="clickable text-primary"
+                                    @click.prevent="emitEditar(item)" />
                             </span>
-                            <!-- Se a chave for ativar, renderiza o ícone normalmente -->
                             <span v-else>
-                                <font-awesome-icon 
-                                    :icon="'fa-solid fa-lightbulb'"
-                                    class="clickable"
+                                <font-awesome-icon :icon="'fa-solid fa-lightbulb'" class="clickable"
                                     :class="item.status == true ? 'text-warning' : ''"
                                     @click.prevent="emitAtivarInativar(item)" />
                             </span>
                         </template>
-                        <!-- Se não for uma coluna de editar ou ativar, exibe o valor normalmente -->
                         <template v-else>
                             {{ value }}
                         </template>

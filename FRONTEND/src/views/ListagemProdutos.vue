@@ -5,8 +5,14 @@
                 <h3>Listagem de Produtos</h3>
             </div>
             <div class="card-body">
-                <h6>Listagem de Produtos</h6>
-                <TabelaDefault :items="items" :headers="header" @ativarInativar="ativarInativar" />
+                <div class="row justify-content-end mb-2">
+                    <div class="col-auto">
+                        <router-link class="p-0" :to="{ name: 'cadastro-produto' }">
+                            <button class="btn btn-primary">Cadastrar Produto</button>
+                        </router-link>
+                    </div>
+                </div>
+                <TabelaDefault :items="items" :headers="header" @ativarInativar="ativarInativar" @editarItem="editarItem" />
             </div>
         </div>
     </div>
@@ -44,10 +50,16 @@ export default {
             ]
         };
     },
+    mounted() {
+        if (useNotificationsStore().notification != null) {
+            this.$refs.notificationRef.addNotification(useNotificationsStore().notification);
+            useNotificationsStore().clearNotification();
+        }
+    },
     methods: {
         ativarInativar(item) {
             item.status = !item.status;
-            
+
             if (item.status) this.mensagem = 'O produto "' + item.produto + '" foi ativado com sucesso!';
             else this.mensagem = 'O produto "' + item.produto + '" foi desativado com sucesso!';
 
@@ -61,6 +73,9 @@ export default {
             useNotificationsStore().showNotification(notification);
             this.$refs.notificationRef.addNotification(useNotificationsStore().notification);
             useNotificationsStore().clearNotification();
+        },
+        editarItem(item) {
+            this.$router.push({ name: 'edit-produto', params: { idProduto: item.id } });
         }
     },
 };
