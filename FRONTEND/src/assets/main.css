@@ -1,0 +1,59 @@
+@import './base.css';
+
+#app {
+  min-width: 100%;
+  margin: 0 0;
+  padding: 2rem 1rem 2rem 1rem;
+  font-weight: normal;
+  overflow-x: hidden;
+}
+
+/* estilo da barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 80%;
+  background-color: #ffffff;
+}
+
+/* estilo do polegar da barra de rolagem */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(5, 91, 155, 1);
+  border-radius: 10px;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  /* body {
+    display: flex;
+    place-items: center;
+  } */
+
+  /* #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  } */
+}
+
+@media screen and (max-width: 576px) {
+  #app {
+    padding: 1.5rem 2px 1.5rem 2px;
+  }
+
+  html {
+    font-size: 13px;
+  }
+}

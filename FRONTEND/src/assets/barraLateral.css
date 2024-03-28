@@ -1,0 +1,32 @@
+.sidebar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 200px;
+    background-color: rgb(248, 245, 245);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar__list {
+    list-style-type: none;
+    padding: 1rem 0 0 1rem;
+    margin: 0;
+}
+
+.sidebar__item {
+    margin-bottom: 10px;
+}
+
+.sidebar__link {
+    text-decoration: none;
+    color: #151414e7;
+}
+
+.sidebar__link:hover {
+    color: rgba(5, 91, 155, 1);
+    background-color: transparent;
+}
