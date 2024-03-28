@@ -48,21 +48,40 @@ export default {
             mensagem: 'Cadastro realizado com sucesso!',
             produto: {
                 nome: '',
-                status: null
+                status: ''
             },
             formValidated: false
         };
     },
-    mounted() {
-        if (this.$route.params.idProduto) {
-            this.title = 'Edição de Produto';
-            this.mensagem = 'Edição realizada com sucesso!';
-            // Preenchendo dados vindos da API - Ficticia
-            this.produto = {
+    beforeRouteEnter(to, from, next) {
+        // Verificar se há um ID de produto na rota
+        if (to.params.idProduto) {
+
+            const title = 'Edição de Produto';
+            const mensagem = 'Edição realizada com sucesso!';
+
+            const produto = {
                 nome: 'Produto 01',
                 status: true
             };
-        } else this.title = 'Cadastro de Produto';
+
+            next(vm => {
+                // Atribuir os valores ao componente
+                vm.title = title;
+                vm.mensagem = mensagem;
+                vm.produto = produto;
+            });
+        } else {
+            const title = 'Cadastro de Produto';
+            const mensagem = 'Cadastro realizado com sucesso!';
+
+            next(vm => {
+                // Atribuir os valores ao componente
+                vm.title = title;
+                vm.mensagem = mensagem; 
+                vm.produto = { nome: '', status: '' }; 
+            });
+        }
     },
     methods: {
         submitForm() {
@@ -76,7 +95,7 @@ export default {
                     title: this.title,
                     message: this.mensagem
                 };
-
+                
                 // Gravando globalmente a notificação
                 useNotificationsStore().showNotification(notification);
                 this.$router.push({ name: 'listagem-produto' });

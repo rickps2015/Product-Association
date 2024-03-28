@@ -10,13 +10,29 @@ const router = createRouter({
       visible: true,
       component: () => import('../views/Home.vue')
     },
+    // Módulo de Cliente
     {
       path: '/cadastro-cliente',
       name: 'cadastro-cliente',
       description: 'Cadastro de Cliente',
       visible: true,
-      component: () => import('../views/CadastroCliente.vue')
+      component: () => import('../views/CadastroEdicaoCliente.vue')
     },
+    {
+      path: '/cliente/edit/:idCliente',
+      name: 'edit-cliente',
+      description: 'Edição de Clientes',
+      visible: false,
+      component: () => import('../views/CadastroEdicaoCliente.vue')
+    },
+    {
+      path: '/listagem-cliente',
+      name: 'listagem-cliente',
+      description: 'Listagem de Clientes',
+      visible: true,
+      component: () => import('../views/ListagemClientes.vue')
+    },
+    // Módulo de Produto
     {
       path: '/produto/edit/:idProduto',
       name: 'edit-produto',

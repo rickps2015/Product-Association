@@ -2,7 +2,7 @@
     <div class="container">
         <div class="card rounded-2">
             <div class="card-title bg-light rounded-2 px-3">
-                <h3>Cadastro de Cliente</h3>
+                <h3>{{ title }}</h3>
             </div>
             <div class="card-body">
                 <form ref="form">
@@ -19,9 +19,7 @@
                             <input type="text" id="cpf" v-model="cliente.cpf" class="form-control" required
                                 maxlength="14" placeholder="Insira o CPF" minlength="14" @input="formatarCPF"
                                 :class="{ 'is-invalid': formValidated && !validarCPF(cliente.cpf) }">
-                            <div class="invalid-feedback" v-if="formValidated && !validarCPF(cliente.cpf)">CPF inválido
-                            </div>
-                            <div class="invalid-feedback">Por favor, insira o CPF.</div>
+                            <div class="invalid-feedback">CPF inválido</div>
                         </div>
 
                         <div class="col mb-3">
@@ -29,9 +27,7 @@
                             <input type="text" id="telefone" v-model="cliente.telefone" class="form-control" required
                                 placeholder="Insira o telefone" @input="formatarTelefone"
                                 :class="{ 'is-invalid': formValidated && !validarTelefone(cliente.telefone) }">
-                            <div class="invalid-feedback" v-if="formValidated && !validarTelefone(cliente.telefone)">
-                                Telefone inválido</div>
-                            <div class="invalid-feedback">Por favor, insira o telefone.</div>
+                            <div class="invalid-feedback">Telefone inválido</div>
                         </div>
                     </div>
                     <div class="row">
@@ -46,8 +42,8 @@
                             <label for="status" class="form-label">Status</label>
                             <select id="status" v-model="cliente.status" class="form-select" required>
                                 <option value="" disabled selected>Selecione...</option>
-                                <option value="active">Ativo</option>
-                                <option value="inactive">Inativo</option>
+                                <option :value="true">Ativo</option>
+                                <option :value="false">Inativo</option>
                             </select>
                             <div class="invalid-feedback">Por favor, selecione o status.</div>
                         </div>
@@ -65,10 +61,14 @@
 </template>
 
 <script>
+import { useNotificationsStore } from '@/stores/notifications';
+
 export default {
     name: 'CadastroCliente',
     data() {
         return {
+            title: 'Cadastro de cliente',
+            mensagem: 'Cadastro realizado com sucesso!',
             cliente: {
                 nome: '',
                 cpf: '',
@@ -79,12 +79,90 @@ export default {
             formValidated: false
         };
     },
+    beforeRouteEnter(to, from, next) {
+        // Verificar se há um ID de cliente na rota
+        if (to.params.idCliente) {
+
+            const title = 'Edição de Cliente';
+            const mensagem = 'Edição realizada com sucesso!';
+
+            const cliente = {
+                nome: 'Cliente 01',
+                cpf: '123.456.789-09',
+                telefone: '(92) 99257-4730',
+                email: 'ricardosilvaparente@gmail.com',
+                status: true
+            };
+
+            next(vm => {
+                // Atribuir os valores ao componente
+                vm.title = title;
+                vm.mensagem = mensagem;
+                vm.cliente = cliente;
+            });
+        } else {
+            const title = 'Cadastro de Cliente';
+            const mensagem = 'Cadastro realizado com sucesso!';
+
+            next(vm => {
+                // Atribuir os valores ao componente
+                vm.title = title;
+                vm.mensagem = mensagem; 
+                vm.cliente = { 
+                    nome: '',
+                    cpf: '',
+                    telefone: '',
+                    email: '',
+                    status: '',
+                }; 
+            });
+        }
+    },
     methods: {
         submitForm() {
-            this.formValidated = true; // Marca o formulário como validado quando o botão de envio é clicado
-            if (this.$refs.form.checkValidity() && this.validarCPF(this.cliente.cpf) && this.validarTelefone(this.cliente.telefone)) {
-                console.log(this.cliente);
-                this.$refs.form.classList.add('was-validated'); // Adiciona a classe was-validated ao formulário se todos os campos estiverem válidos
+            const form = this.$refs.form;
+
+            // Verificar se todos os campos obrigatórios estão preenchidos
+            const inputs = form.querySelectorAll('input[required], select[required]');
+            let camposPreenchidos = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    camposPreenchidos = false;
+                    input.classList.add('is-invalid'); // Adicionar classe para destacar campos não preenchidos
+                } else {
+                    input.classList.remove('is-invalid'); // Remover classe de campos válidos
+                }
+            });
+
+            // Se todos os campos obrigatórios estiverem preenchidos
+            if (camposPreenchidos) {
+                // Verificar a validade do CPF apenas se estiver preenchido
+                if (this.cliente.cpf && !this.validarCPF(this.cliente.cpf)) {
+                    // Se o CPF for inválido, adicionar classe de inválido ao campo
+                    form.querySelector('#cpf').classList.add('is-invalid');
+                }
+
+                // Verificar a validade do telefone apenas se estiver preenchido
+                if (this.cliente.telefone && !this.validarTelefone(this.cliente.telefone)) {
+                    // Se o telefone for inválido, adicionar classe de inválido ao campo
+                    form.querySelector('#telefone').classList.add('is-invalid');
+                }
+
+                // Se o formulário for válido
+                if (form.checkValidity() && !form.querySelector('.is-invalid')) {
+                    this.formValidated = true; // Marcar o formulário como validado
+
+                    const notification = {
+                        type: 'success',
+                        title: this.title,
+                        message: this.mensagem
+                    };
+
+                    // Gravando globalmente a notificação
+                    useNotificationsStore().showNotification(notification);
+                    this.$router.push({ name: 'listagem-cliente' });
+                }
             }
         },
         validarCPF(cpf) {
@@ -176,4 +254,3 @@ export default {
     }
 };
 </script>
-
