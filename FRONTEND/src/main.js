@@ -6,11 +6,11 @@ import App from './App.vue'
 import router from './router'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faHouse, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faBars, faLightbulb, faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-library.add(faHouse, faBars)
+library.add(faHouse, faBars, faLightbulb, faPenToSquare)
 
 const app = createApp(App)
 

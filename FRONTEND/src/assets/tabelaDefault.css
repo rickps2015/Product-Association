@@ -1,0 +1,13 @@
+#table {
+    height: 400px;
+    overflow-y: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.sticky-top {
+  z-index: 9;
+  background-color: rgb(248, 245, 245);
+}
