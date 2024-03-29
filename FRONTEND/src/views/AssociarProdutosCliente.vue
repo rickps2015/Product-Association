@@ -26,7 +26,7 @@
                                             <h5>Lista de Produtos</h5>
                                             <div>
                                                 <label>
-                                                    <input type="checkbox" class="form-check-input p-2"
+                                                    <input id="checkboxProduto" type="checkbox" class="form-check-input p-2"
                                                         @change="selecionarTodosProdutos" v-model="selectAll">
                                                     Selecionar Todos
                                                 </label>
@@ -35,7 +35,7 @@
                                                 <div class="col-auto tamContainer">
                                                     <div v-for="product in produtos" :key="product.id">
                                                         <label>
-                                                            <input type="checkbox" class="form-check-input p-2"
+                                                            <input :id="'idProduto'+product.id" type="checkbox" class="form-check-input p-2"
                                                                 v-model="produtosSelecionados" :value="product.id"> {{
                                     product.name }}
                                                         </label>

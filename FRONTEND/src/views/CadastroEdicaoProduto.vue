@@ -15,7 +15,7 @@
                             <label for="nome" class="form-label mb-0">Nome do produto</label>
                             <input type="text" id="nome" v-model="produto.nome" class="form-control" required
                                 placeholder="Insira o nome do produto">
-                            <div class="invalid-feedback">Por favor, insira o nome do produto.</div>
+                            <div id="invalid-produto" class="invalid-feedback">Por favor, insira o nome do produto.</div>
                         </div>
 
                         <div class="col mb-2">
@@ -25,7 +25,7 @@
                                 <option :value="true">Ativo</option>
                                 <option :value="false">Inativo</option>
                             </select>
-                            <div class="invalid-feedback">Por favor, selecione o status.</div>
+                            <div id="invalid-status" class="invalid-feedback">Por favor, selecione o status.</div>
                         </div>
                     </div>
 
