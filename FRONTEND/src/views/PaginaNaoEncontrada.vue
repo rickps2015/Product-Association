@@ -1,10 +1,12 @@
 <template>
     <div class="error-container">
+
         <div class="row justify-content-center mb-4">
             <div class="col-auto">
                 <img src="../assets/img/error.png" style="width: 200px;">
             </div>
         </div>
+
         <div class="row">
             <div class="col-12">
                 <h2 class="error-container__message">Página Não Encontrada</h2>
@@ -15,6 +17,7 @@
                 </router-link>
             </div>
         </div>
+
     </div>
 </template>
 

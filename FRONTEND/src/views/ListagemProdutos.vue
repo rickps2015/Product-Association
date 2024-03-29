@@ -1,10 +1,13 @@
 <template>
     <div class="container">
         <div class="card rounded-2">
+
             <div class="card-title bg-light rounded-2 px-3">
                 <h3>Listagem de Produtos</h3>
             </div>
+
             <div class="card-body">
+
                 <div class="row justify-content-end mb-2">
                     <div class="col-auto">
                         <router-link class="p-0" :to="{ name: 'cadastro-produto' }">
@@ -12,10 +15,14 @@
                         </router-link>
                     </div>
                 </div>
+
                 <TabelaDefault :items="items" :headers="header" @ativarInativar="ativarInativar" @editarItem="editarItem" />
+
             </div>
+
         </div>
     </div>
+
     <!-- Elemento de notificação -->
     <NotificacaoDefault ref="notificationRef" />
 </template>
@@ -27,10 +34,12 @@ import NotificacaoDefault from '@/components/NotificacaoDefault.vue';
 
 export default {
     name: 'ListagemProduto',
+
     components: {
         TabelaDefault,
         NotificacaoDefault
     },
+
     data() {
         return {
             title: 'Produto',
@@ -50,12 +59,14 @@ export default {
             ]
         };
     },
+
     mounted() {
         if (useNotificationsStore().notification != null) {
             this.$refs.notificationRef.addNotification(useNotificationsStore().notification);
             useNotificationsStore().clearNotification();
         }
     },
+
     methods: {
         ativarInativar(item) {
             item.status = !item.status;
@@ -74,6 +85,7 @@ export default {
             this.$refs.notificationRef.addNotification(useNotificationsStore().notification);
             useNotificationsStore().clearNotification();
         },
+        
         editarItem(item) {
             this.$router.push({ name: 'edit-produto', params: { idProduto: item.id } });
         }

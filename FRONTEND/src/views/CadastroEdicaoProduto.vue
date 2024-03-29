@@ -1,12 +1,15 @@
 <template>
     <div class="container">
         <div class="card rounded-2">
+
             <div class="card-title bg-light rounded-2 px-3">
                 <h3>{{ title }}</h3>
             </div>
+
             <div class="card-body">
-                <form @submit.prevent="submitForm" ref="formProduto"
+                <form @submit.prevent="submissaoFormulario" ref="formProduto"
                     :class="{ 'was-validated': formValidated && !formValidation }">
+
                     <div class="row">
                         <div class="col mb-2">
                             <label for="nome" class="form-label mb-0">Nome do produto</label>
@@ -33,6 +36,7 @@
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
 </template>
@@ -42,6 +46,7 @@ import { useNotificationsStore } from '@/stores/notifications';
 
 export default {
     name: 'CadastroEdicaoProduto',
+
     data() {
         return {
             title: 'Cadastro de Produto',
@@ -53,6 +58,7 @@ export default {
             formValidated: false
         };
     },
+
     beforeRouteEnter(to, from, next) {
         // Verificar se há um ID de produto na rota
         if (to.params.idProduto) {
@@ -83,8 +89,15 @@ export default {
             });
         }
     },
+
+    computed: {
+        formValidation() {
+            return !this.$refs.formProduto.checkValidity();
+        }
+    },
+
     methods: {
-        submitForm() {
+        submissaoFormulario() {
             const form = this.$refs.formProduto;
 
             this.formValidated = true;
@@ -102,10 +115,5 @@ export default {
             }
         }
     },
-    computed: {
-        formValidation() {
-            return !this.$refs.formProduto.checkValidity();
-        }
-    }
 };
 </script>

@@ -3,13 +3,16 @@
         <div class="row justify-content-center">
             <div class="col col-sm-auto col-md-auto col-lg-auto col-xl-auto col-xxl-auto">
                 <div class="card rounded-2">
+
                     <div class="card-title bg-light rounded-2 px-3">
                         <h3>Associar Produtos a Cliente</h3>
                     </div>
+
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-auto align-self-center">
-                                <form @submit.prevent="salvar">
+
+                                <form @submit.prevent="salvarAssociacao">
                                     <div class="row mb-2">
                                         <div class="col-auto">
                                             <h5>Lista de Clientes</h5>
@@ -54,9 +57,11 @@
                                         </div>
                                     </div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -117,14 +122,16 @@ export default {
                 this.produtosSelecionados = [];
             }
         },
-        salvar() {
+        
+        salvarAssociacao() {
             if (this.produtosSelecionados.length === 0) {
                 const notification = {
                     type: 'error',
                     title: 'Erro',
                     message: 'Pelo menos um produto deve ser selecionado.'
                 };
-                useNotificationsStore().showNotification(notification);
+                
+                useNotificationsStore().showNotification(notification); // Adicionando a notificação na store
             } else {
                 const notification = {
                     type: 'success',
@@ -132,8 +139,7 @@ export default {
                     message: this.mensagem
                 };
 
-                // Gravando globalmente a notificação
-                useNotificationsStore().showNotification(notification);
+                useNotificationsStore().showNotification(notification); // Gravando globalmente a notificação
                 this.$router.push({ name: 'listagem-cliente' });
             }
         }
