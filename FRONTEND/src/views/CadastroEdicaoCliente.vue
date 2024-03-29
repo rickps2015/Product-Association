@@ -7,39 +7,39 @@
             <div class="card-body">
                 <form ref="form">
                     <div class="row">
-                        <div class="col mb-3">
-                            <label for="nome" class="form-label">Nome</label>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-2">
+                            <label for="nome" class="form-label mb-0">Nome</label>
                             <input type="text" id="nome" v-model="cliente.nome" class="form-control" required
                                 placeholder="Insira o nome">
                             <div class="invalid-feedback">Por favor, insira o nome.</div>
                         </div>
 
-                        <div class="col mb-3">
-                            <label for="cpf" class="form-label">CPF</label>
+                        <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6 mb-2">
+                            <label for="email" class="form-label mb-0">Email</label>
+                            <input type="email" id="email" v-model="cliente.email" class="form-control" required
+                                placeholder="Insira o email">
+                            <div class="invalid-feedback">Por favor, insira um email válido.</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4 mb-2">
+                            <label for="cpf" class="form-label mb-0">CPF</label>
                             <input type="text" id="cpf" v-model="cliente.cpf" class="form-control" required
                                 maxlength="14" placeholder="Insira o CPF" minlength="14" @input="formatarCPF"
                                 :class="{ 'is-invalid': formValidated && !validarCPF(cliente.cpf) }">
                             <div class="invalid-feedback">CPF inválido</div>
                         </div>
 
-                        <div class="col mb-3">
-                            <label for="telefone" class="form-label">Telefone</label>
+                        <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4 mb-2">
+                            <label for="telefone" class="form-label mb-0">Telefone</label>
                             <input type="text" id="telefone" v-model="cliente.telefone" class="form-control" required
                                 placeholder="Insira o telefone" @input="formatarTelefone"
                                 :class="{ 'is-invalid': formValidated && !validarTelefone(cliente.telefone) }">
                             <div class="invalid-feedback">Telefone inválido</div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" v-model="cliente.email" class="form-control" required
-                                placeholder="Insira o email">
-                            <div class="invalid-feedback">Por favor, insira um email válido.</div>
-                        </div>
 
-                        <div class="col mb-3">
-                            <label for="status" class="form-label">Status</label>
+                        <div class="col mb-2">
+                            <label for="status" class="form-label mb-0">Status</label>
                             <select id="status" v-model="cliente.status" class="form-select" required>
                                 <option value="" disabled selected>Selecione...</option>
                                 <option :value="true">Ativo</option>
@@ -107,14 +107,14 @@ export default {
             next(vm => {
                 // Atribuir os valores ao componente
                 vm.title = title;
-                vm.mensagem = mensagem; 
-                vm.cliente = { 
+                vm.mensagem = mensagem;
+                vm.cliente = {
                     nome: '',
                     cpf: '',
                     telefone: '',
                     email: '',
                     status: '',
-                }; 
+                };
             });
         }
     },

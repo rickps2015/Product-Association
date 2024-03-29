@@ -5,13 +5,13 @@
                 <h3>Listagem de Clientes</h3>
             </div>
             <div class="card-body">
-                <div class="row justify-content-end mb-2">
-                    <div class="col-auto">
+                <div class="row justify-content-end">
+                    <div class="col-auto mb-2">
                         <router-link class="p-0" :to="{ name: 'associacao-produto-cliente' }">
                             <button class="btn btn-primary">Assosciar Produtos/Cliente</button>
                         </router-link>
                     </div>
-                    <div class="col-auto">
+                    <div class="col-auto mb-2">
                         <router-link class="p-0" :to="{ name: 'cadastro-cliente' }">
                             <button class="btn btn-primary">Cadastrar Clientes</button>
                         </router-link>

@@ -8,15 +8,15 @@
                 <form @submit.prevent="submitForm" ref="formProduto"
                     :class="{ 'was-validated': formValidated && !formValidation }">
                     <div class="row">
-                        <div class="col mb-3">
-                            <label for="nome" class="form-label">Nome do produto</label>
+                        <div class="col mb-2">
+                            <label for="nome" class="form-label mb-0">Nome do produto</label>
                             <input type="text" id="nome" v-model="produto.nome" class="form-control" required
                                 placeholder="Insira o nome do produto">
                             <div class="invalid-feedback">Por favor, insira o nome do produto.</div>
                         </div>
 
-                        <div class="col mb-3">
-                            <label for="status" class="form-label">Status</label>
+                        <div class="col mb-2">
+                            <label for="status" class="form-label mb-0">Status</label>
                             <select id="status" v-model="produto.status" class="form-select" required>
                                 <option value="" disabled selected>Selecione...</option>
                                 <option :value="true">Ativo</option>

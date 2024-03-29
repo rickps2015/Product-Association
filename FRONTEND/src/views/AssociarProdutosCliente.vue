@@ -1,52 +1,61 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-auto">
+            <div class="col col-sm-auto col-md-auto col-lg-auto col-xl-auto col-xxl-auto">
                 <div class="card rounded-2">
                     <div class="card-title bg-light rounded-2 px-3">
                         <h3>Associar Produtos a Cliente</h3>
                     </div>
                     <div class="card-body">
-                        <form @submit.prevent="salvar">
-                            <div class="row mb-2">
-                                <div class="col-auto">
-                                    <h5>Lista de Clientes</h5>
-                                    <select v-model="clienteSelecionado" required class="form-select">
-                                        <option value="" disabled selected>Selecione um cliente</option>
-                                        <option v-for="client in clientes" :value="client.id" :key="client.id">{{ client.name }}</option>
-                                    </select>
-                                </div>
-                                <div class="col-auto">
-                                    <h5>Lista de Produtos</h5>
-                                    <div>
-                                        <label>
-                                            <input type="checkbox" class="form-check-input p-2" @change="selecionarTodosProdutos" v-model="selectAll"> Selecionar Todos
-                                        </label>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-auto tam">
-                                            <div v-for="product in produtos" :key="product.id">
+                        <div class="row justify-content-center">
+                            <div class="col-auto align-self-center">
+                                <form @submit.prevent="salvar">
+                                    <div class="row mb-2">
+                                        <div class="col-auto">
+                                            <h5>Lista de Clientes</h5>
+                                            <select v-model="clienteSelecionado" required class="form-select">
+                                                <option value="" disabled selected>Selecione um cliente</option>
+                                                <option v-for="client in clientes" :value="client.id" :key="client.id">
+                                                    {{ client.name }}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-auto">
+                                            <h5>Lista de Produtos</h5>
+                                            <div>
                                                 <label>
-                                                    <input type="checkbox" class="form-check-input p-2" v-model="produtosSelecionados" :value="product.id"> {{ product.name }}
+                                                    <input type="checkbox" class="form-check-input p-2"
+                                                        @change="selecionarTodosProdutos" v-model="selectAll">
+                                                    Selecionar Todos
                                                 </label>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-auto tam">
+                                                    <div v-for="product in produtos" :key="product.id">
+                                                        <label>
+                                                            <input type="checkbox" class="form-check-input p-2"
+                                                                v-model="produtosSelecionados" :value="product.id"> {{
+                                    product.name }}
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row justify-content-end mt-2">
-                                <div class="col-auto">
-                                    <button type="submit" class="btn btn-primary">Salvar</button>
-                                </div>
-                            </div>
-                            <div v-if="!produtosSelecionados.length" class="row mt-2">
-                                <div class="col-auto">
-                                    <div class="alert alert-danger" role="alert">
-                                        Pelo menos um produto deve ser selecionado.
+                                    <div class="row justify-content-end mt-2">
+                                        <div class="col-auto">
+                                            <button type="submit" class="btn btn-primary">Salvar</button>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div v-if="!produtosSelecionados.length" class="row justify-content-center mt-2">
+                                        <div class="col-auto">
+                                            <div class="alert alert-danger" role="alert">
+                                                Pelo menos um produto deve ser selecionado.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

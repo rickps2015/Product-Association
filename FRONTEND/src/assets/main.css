@@ -50,7 +50,7 @@ a,
 
 @media screen and (max-width: 576px) {
   #app {
-    padding: 1.5rem 2px 1.5rem 2px;
+    padding: 1.5rem 1px 1.5rem 1px;
   }
 
   html {
