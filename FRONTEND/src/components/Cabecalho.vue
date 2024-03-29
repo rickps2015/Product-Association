@@ -5,6 +5,12 @@
                 <button class="btn btn-light btn-sm mt-1" @click="toggleSidebar">
                     <font-awesome-icon icon="fa-solid fa-bars" />
                 </button>
+                <button class="btn btn-light btn-sm mt-1 ms-2" @click="selfback">
+                    <font-awesome-icon icon="fa-solid fa-circle-left" />
+                </button>
+                <button class="btn btn-light btn-sm mt-1 ms-2" @click="goHome">
+                    <font-awesome-icon icon="fa-solid fa-house" />
+                </button>
             </div>
         </div>
     </header>
@@ -17,6 +23,12 @@ export default {
         toggleSidebar() {
             this.$emit('toggle-barra-lateral');
         },
+        selfback() {
+            this.$router.go(-1);
+        },
+        goHome() {
+            this.$router.push('/');
+        }
     }
 }
 </script>

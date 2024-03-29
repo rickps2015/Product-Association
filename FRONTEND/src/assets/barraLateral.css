@@ -6,7 +6,7 @@
     z-index: 1000;
     overflow-x: hidden;
     overflow-y: auto;
-    width: 200px;
+    width: 280px;
     background-color: rgb(248, 245, 245);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -30,3 +30,10 @@
     color: rgba(5, 91, 155, 1);
     background-color: transparent;
 }
+
+@media screen and (max-width: 576px) {
+    .sidebar {
+        top: 35px;
+        width: 260px;
+    }
+  }
