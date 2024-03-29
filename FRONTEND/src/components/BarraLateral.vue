@@ -1,5 +1,5 @@
 <template>
-    <aside :class="{ 'sidebar--open': barraAberta, 'sidebar': barraAberta }">
+    <aside :class="{ 'sidebar': barraAberta }">
         <ul v-if="barraAberta" class="sidebar__list">
             <li v-for="(rota, index) in routes" :key="index" class="sidebar__item">
                 <div v-if="rota.visible">
@@ -31,5 +31,5 @@ export default {
 </script>
 
 <style>
-@import "@/assets/barraLateral.css";
+@import "@/assets/css/barraLateral.css";
 </style>

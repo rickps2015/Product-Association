@@ -7,8 +7,8 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <h2 class="error-message">Página Não Encontrada</h2>
-                <p class="error-description">
+                <h2 class="error-container__message">Página Não Encontrada</h2>
+                <p class="error-container__description">
                     Desculpe, a página que você está procurando não existe.</p>
                 <router-link to="/" class="btn btn-primary">
                     Voltar para a página inicial
@@ -19,20 +19,5 @@
 </template>
 
 <style scoped>
-.error-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.error-message {
-    font-size: 2rem;
-    color: #6c757d;
-    margin-top: 0.5rem;
-}
-
-.error-description {
-    font-size: 1rem;
-    color: #6c757d;
-}
-
+@import '../assets/css/paginaNaoEncontrada.css';
 </style>

@@ -1,7 +1,7 @@
 <template>
     <header>
-        <div id="header" class="row align-items-center header__background-blue mb-2 border-opacity-75 p-0 mx-0">
-            <div class="col-auto container-button align-self-center mt-1">
+        <div class="row align-items-center header header__background-blue mb-2 border-opacity-75 p-0 mx-0">
+            <div class="col-auto header__container-button align-self-center mt-1">
                 <button class="btn btn-light btn-sm mt-1" @click="toggleSidebar">
                     <font-awesome-icon icon="fa-solid fa-bars" />
                 </button>
@@ -34,5 +34,5 @@ export default {
 </script>
 
 <style>
-@import '@/assets/cabecalho.css';
+@import '@/assets/css/cabecalho.css';
 </style>

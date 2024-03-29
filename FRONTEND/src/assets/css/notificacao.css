@@ -1,3 +1,5 @@
+/* CSS para a utilização nas notificações (NotificationDefault) */
+
 .notification-container {
     position: fixed;
     bottom: 20px;
@@ -17,15 +19,15 @@
     transition: all 0.5s;
 }
 
-.notification-error {
+.notification--error {
     background-color: #ff6347;
 }
 
-.notification-success {
+.notification--success {
     background-color: #32cd32;
 }
 
-.notification-warning {
+.notification--warning {
     background-color: #ffd700;
 }
 

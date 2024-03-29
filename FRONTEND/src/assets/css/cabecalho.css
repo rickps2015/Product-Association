@@ -1,4 +1,6 @@
-#header {
+/* CSS para a utilização no cabeçalho (Header) */
+
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +13,7 @@
   background-color: rgba(5, 91, 155, 1);
 }
 
-.container-button {
+.header__container-button {
   height: 50px;
 }
 
@@ -35,7 +37,7 @@
 }
 
 @media screen and (max-width: 576px) {
-  #header {
+  .header {
     height: 35px;
   }
 }

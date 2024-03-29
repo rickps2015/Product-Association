@@ -11,7 +11,3 @@ export default {
     name: 'HomeDefault',
 }
 </script>
-
-<style>
-
-</style>

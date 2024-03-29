@@ -29,7 +29,7 @@
                                                 </label>
                                             </div>
                                             <div class="row">
-                                                <div class="col-auto tam">
+                                                <div class="col-auto tamContainer">
                                                     <div v-for="product in produtos" :key="product.id">
                                                         <label>
                                                             <input type="checkbox" class="form-check-input p-2"
@@ -141,9 +141,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.tam {
-    max-height: 250px;
-    overflow-y: auto;
-}
-</style>

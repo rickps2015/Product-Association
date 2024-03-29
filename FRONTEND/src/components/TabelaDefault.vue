@@ -1,7 +1,7 @@
 <template>
-    <div id="table" class="table-responsive">
+    <div class="table table-responsive">
         <table class="table">
-            <thead class="sticky-top">
+            <thead class="table__header">
                 <tr>
                     <th v-for="(header, index) in headers" :key="index" class="text-center">{{ header }}</th>
                 </tr>
@@ -16,11 +16,11 @@
                                 {{ value ? 'Ativo' : 'Inativo' }}
                             </span>
                             <span v-else-if="key === 'editar'">
-                                <font-awesome-icon :icon="'fa-solid fa-pen-to-square'" class="clickable text-primary"
+                                <font-awesome-icon :icon="'fa-solid fa-pen-to-square'" class="table__cell text-primary"
                                     @click.prevent="emitEditar(item)" />
                             </span>
                             <span v-else>
-                                <font-awesome-icon :icon="'fa-solid fa-lightbulb'" class="clickable"
+                                <font-awesome-icon :icon="'fa-solid fa-lightbulb'" class="table__cell"
                                     :class="item.status == true ? 'text-warning' : ''"
                                     @click.prevent="emitAtivarInativar(item)" />
                             </span>
@@ -60,5 +60,5 @@ export default {
 </script>
 
 <style scoped>
-@import "@/assets/tabelaDefault.css";
+@import "@/assets/css/tabelaDefault.css";
 </style>

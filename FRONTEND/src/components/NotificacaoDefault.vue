@@ -1,7 +1,7 @@
 <template>
     <div class="notification-container">
         <div v-for="(notification, index) in notifications" :key="notification.id"
-            :class="['notification', `notification-${notification.type}`]"
+            :class="['notification', `notification--${notification.type}`]"
             :style="{ bottom: `${index * (notificationHeight + gap)}px` }" @transitionend="removeNotification(index)"
             ref="notificationItem">
             <div class="row justify-content-between">
@@ -81,5 +81,5 @@ export default {
 </script>
 
 <style scoped>
-@import "@/assets/notificacao.css";
+@import "@/assets/css/notificacao.css";
 </style>

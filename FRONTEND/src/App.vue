@@ -37,31 +37,3 @@ export default {
 };
 </script>
 
-<style>
-.slide-in-enter-active {
-  animation: slide-in-enter 0.5s ease;
-}
-
-.slide-out-leave-active {
-  animation: slide-out-leave 0.5s ease;
-}
-
-@keyframes slide-in-enter {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-out-leave {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-</style>
