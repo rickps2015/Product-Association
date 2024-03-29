@@ -54,6 +54,14 @@ const router = createRouter({
       visible: true,
       component: () => import('../views/ListagemProdutos.vue')
     },
+    // Módulo de Associação de Produtos com Cliente
+    {
+      path: '/associacao-produto-cliente',
+      name: 'associacao-produto-cliente',
+      description: 'Associação de Produtos/Cliente',
+      visible: true,
+      component: () => import('../views/AssociarProdutosCliente.vue')
+    },
   ]
 })
 
