@@ -12,7 +12,7 @@
                 <h2 class="error-container__message">Página Não Encontrada</h2>
                 <p class="error-container__description">
                     Desculpe, a página que você está procurando não existe.</p>
-                <router-link  to="/home" class="btn btn-primary">
+                <router-link  to="/" class="btn btn-primary">
                     <button id="pageHome" class="btn text-white btn-sm">
                         Voltar para a página inicial
                     </button>
