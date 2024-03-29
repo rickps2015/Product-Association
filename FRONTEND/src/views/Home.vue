@@ -26,7 +26,7 @@
                     modelagem de layouts até a implementação, testes e entrega do sistema, utilizando a metodologia ágil
                     SCRUM. Os Projetos são relacionados a monitoramento em tempo real, processos produtivos, gestão e
                     área administrativa. Também sou pesquisador na área de otimização de processos, com alguns artigos e capítulos
-                    de livros publicados em periódicos internacionais. Professor de cursos de curta duração em Power BI e exporadicamente participo de elaboração de propostas de projetos de inovação na área de engenharia junto ao desenvolviemnto de software.</p>
+                    de livros publicados em periódicos internacionais. Professor de cursos de curta duração em Power BI e exporadicamente participo de elaboração de propostas de projetos de inovação na área de engenharia junto ao desenvolvimento de software.</p>
                 <h3 class="text-center mt-5 subtitle">Formação Acadêmica</h3>
                 <ul>
                     <li>Mestrado em Engenharia, Gestão de Processos, Sistema e Ambiental (EGPSA)</li>

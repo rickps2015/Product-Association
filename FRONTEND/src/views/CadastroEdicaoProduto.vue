@@ -50,7 +50,7 @@ export default {
     data() {
         return {
             title: 'Cadastro de Produto',
-            mensagem: 'Cadastro realizado com sucesso!',
+            mensagem: 'Cadastro de produto realizado com sucesso!',
             produto: {
                 nome: '',
                 status: ''
@@ -64,7 +64,7 @@ export default {
         if (to.params.idProduto) {
 
             const title = 'Edição de Produto';
-            const mensagem = 'Edição realizada com sucesso!';
+            const mensagem = 'Edição de produto realizada com sucesso!';
 
             const produto = {
                 nome: 'Produto 01',
@@ -79,7 +79,7 @@ export default {
             });
         } else {
             const title = 'Cadastro de Produto';
-            const mensagem = 'Cadastro realizado com sucesso!';
+            const mensagem = 'Cadastro de produto realizado com sucesso!';
 
             next(vm => {
                 // Atribuir os valores ao componente
