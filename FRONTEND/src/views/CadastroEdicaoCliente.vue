@@ -74,7 +74,7 @@ export default {
     data() {
         return {
             title: 'Cadastro de cliente',
-            mensagem: 'Cadastro realizado com sucesso!',
+            mensagem: 'Cadastro de cliente realizado com sucesso!',
             cliente: {
                 nome: '',
                 cpf: '',
@@ -91,7 +91,7 @@ export default {
         if (to.params.idCliente) {
 
             const title = 'Edição de Cliente';
-            const mensagem = 'Edição realizada com sucesso!';
+            const mensagem = 'Edição de cliente realizada com sucesso!';
 
             const cliente = {
                 nome: 'Cliente 01',
@@ -109,7 +109,7 @@ export default {
             });
         } else {
             const title = 'Cadastro de Cliente';
-            const mensagem = 'Cadastro realizado com sucesso!';
+            const mensagem = 'Cadastro de cliente realizado com sucesso!';
 
             next(vm => {
                 // Atribuir os valores ao componente
